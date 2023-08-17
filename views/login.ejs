@@ -1,0 +1,147 @@
+<%- include('partials/header') %>
+
+<% if(message.length>0){ %>
+
+  <div class="alert alert-danger alert-dismissible fade show mb-0 pt-4 "  style="text-align: center;">
+    <h5><%= message %></h5>
+    <button style="display: none;" type="button" class="btn close" data-bs-dismiss="alert" id="alertButton">
+    </button>
+  </div>
+
+<% } %>   
+
+<script>
+  window.onload =setTimeout( function(){
+      document.getElementById('alertButton').click();
+    },1800)
+    </script>
+  
+
+<div>
+  <section class=" gradient-form login-section">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img
+                    src="/Images/logo.jpg"
+                    width="45%"
+                    alt="logo"
+                  />
+                  <h4 class="mt-1 mb-5 pb-1">Sign In to Your Account</h4>
+                </div>
+
+                <form action="/login" method="post">
+                   
+
+                  <div class="form-outline mb-4">
+                    <input required
+                      style="margin-left: 0%"
+                      type="email"
+                      id="form2Example11"
+                      class="form-control"
+                      placeholder="Email Address"
+                      name="inputemail"
+                    />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input required
+                    id="myInput"
+                      style="margin-left: 0%"
+                      type="password"
+                      id="form2Example22"
+                      class="form-control"
+                      placeholder="Password"
+                      name="inputpassword"
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="checkbox" onclick="myFunction()"/> Show Password
+                    </div>
+                    <div class="col-6 " style="text-align: end;">
+                      <a style="color: #36b2d8;" href="/resetPassword">
+                      Forgot Password?
+                    </a>
+                    </div>
+                  </div>
+                  <div class="text-center pt-1 mb-4 mt-2 pb-1">
+                    <button
+                      class="btn btn-outline-secondary btn-block fa-lg mt-3"
+                      type="submit"
+                      id="gradient"
+                      onmouseover="hoverFunction()"
+                      onmouseout="outFunction()"
+                      >
+                      Login
+                      </button>
+                      </div>
+                      </form>
+
+                  <div
+                    class="d-flex align-items-center justify-content-center pb-4"
+                  >
+
+                  <p class="small mb-0 me-2">Don't have an account ? </p>
+                    <a href="/register">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"
+                      id="gradient1"
+                      onmouseover="hoverFunction1()"
+                      onmouseout="outFunction1()"
+                      >
+                        Sign Up
+                      </button>
+                    </a>
+                    
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are more than just a website.</h4>
+                <p class="small mb-0">
+                  Why waste your precious time and energy over searching various web pages to get 
+                  information about your desired exam.Join with us and get all your exam details at
+                  one click.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+
+
+<script>
+  function myFunction(){
+    var x=document.getElementById("myInput");
+    if(x.type==="password"){
+      x.type="text";
+    }else{
+      x.type="password";
+    }
+  }
+</script>
+<script>
+  function hoverFunction(){
+  document.getElementById("gradient").classList.add("gradient-custom-2");
+  }
+  function outFunction(){
+  document.getElementById("gradient").classList.remove("gradient-custom-2");
+  }
+  function hoverFunction1(){
+  document.getElementById("gradient1").classList.add("gradient-custom-2");
+  }
+  function outFunction1(){
+  document.getElementById("gradient1").classList.remove("gradient-custom-2");
+  }
+  </script>
+<%- include('partials/footer') %>

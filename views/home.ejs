@@ -1,0 +1,121 @@
+<% if(sess===true){ %>
+  <%- include('partials/authHeader') %>
+<% }else{ %>
+  <%- include('partials/header') %>
+<% } %> 
+
+<% if(message.length>0){ %>
+ 
+  <div class="alert alert-success alert-dismissible fade show mb-0 pt-4 "  style="text-align: center;">
+    <h5><%= message %></h5>
+    <button style="display: none;" type="button" class="btn close" data-bs-dismiss="alert" id="alertButton">
+    </button>
+  </div>
+
+<% } %> 
+  <script>
+         window.onload =setTimeout( function(){document.getElementById('alertButton').click();},1800);
+  </script> 
+
+ <!-- Top image  -->
+ 
+
+ <div class="mb-5 mt-0">
+    <img style="box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 2);" class="top-image" src="/Images/wallpaper.png" alt="JOB APPLICATION SITE">
+</div>
+  
+
+<div class="row category_link mt-5" style="width: 100%;">
+  <div class="col-lg-2" >
+
+  </div>
+  <div class="col-lg-2" >
+    <img style="width: 3.125rem; height: 3.125rem;" src="https://cdn-icons-png.flaticon.com/512/2940/2940653.png" alt="img">
+    <h6>Login</h6>
+    <p>Login to get updates about your preferred exams.</p>
+  </div>
+  <div class="col-lg-2">
+    <img style="width: 3.125rem; height: 3.125rem;" src="https://cdn-icons-png.flaticon.com/512/1722/1722377.png" alt="img">
+    <h6>Exams</h6>
+    <p>Allows you to view and get notified about your exams.</p>
+  </div>
+  <div class="col-lg-2" >
+    <img style="width: 3.125rem; height: 3.125rem;" src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="img">
+    <h6>Date</h6>
+    <p>Assures that you never miss the schedule of your exams</p>
+  </div>
+  <div class="col-lg-2">
+    <img style="width: 3.125rem; height: 3.125rem;" src="https://cdn-icons-png.flaticon.com/512/4221/4221015.png" alt="img">
+    <h6>Results</h6>
+    <p>See your hardwork and dedication coming into action.</p>
+  </div>
+  <div class="col-lg-2" >
+
+  </div>
+</div>
+
+
+<div id="carouselIndicator" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" style="padding-bottom: 1.5rem;">
+  
+    <div class="carousel-inner" >
+
+      <div class="carousel-item active" style="text-align: center;">
+        <!-- <img class="d-block w-100" src="/Images/Image1.jpeg" alt="Second slide"> -->
+       
+       <% for(var i=0;i<exams.length && i<6;i++){   %>
+        <div class="box1 col-lg-3 " style="margin-left: 0.8rem; margin-right: 0.8rem;">
+            <a  href="/about/<%= exams[i].examName %>"> 
+                <p style="padding-top:1.125rem ; text-align: center;" class="block-text"><%= exams[i].examName %></p>
+            </a>
+        </div>
+       <% }   %>
+      </div>
+     
+     <% if(exams.length>6){ %>
+        
+        <% for(var k=6;k<exams.length;){   %>
+            <div class="carousel-item " style="text-align: center;">
+               <% for(var j=k;j<exams.length && j<k+6;j++){   %>
+                    
+                <div class="box1 col-lg-3 " style="margin-left: 0.8rem; margin-right: 0.8rem;">
+                    <a  href="/about/<%= exams[j].examName %>"> 
+                        <p style="padding-top:1.125rem ; text-align: center;" class="block-text"><%= exams[j].examName %></p>
+                    </a>
+                </div>
+
+
+                  <% }   %>
+                  <% k=k+6 %>
+                </div>       
+                    
+            <% }   %>
+
+      <%}%> 
+       
+
+    <a class="carousel-control-prev" href="#carouselIndicator" role="button" data-slide="prev">
+      <span style="margin-right: 5rem;"  class="carousel-control-prev-icon"></span>
+    </a>
+    <a  class="carousel-control-next" href="#carouselIndicator" role="button" data-slide="next">
+      <span style="margin-left: 5rem;" class="carousel-control-next-icon"></span>
+    </a>
+  </div> 
+
+
+</div>
+    <div class="skill-row mt-5" style="margin-left: 10%;">
+        <img class="programming-img" src="https://cdn-icons-png.flaticon.com/512/4233/4233789.png" alt="img">
+        <h3>We Are Here For You</h3>
+        <p>Finding it difficult to keep track of exam updates?<br>
+          Don't Worry!!Leave the tedious work to us and give your precious time and effort to studies.</p>
+    </div>
+    <div class="skill-row mb-5" style="text-align: end; margin-right: 10%;">
+        <img class="french-fries-img" src="https://cdn-icons-png.flaticon.com/512/3271/3271889.png" alt="img">
+        <h3>What We Do</h3>
+        <p>Visit your Profile to 
+          check for any updates<br>We keep track of your desired exam and update ourselves at the earliest.</p>
+    </div>
+  
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,109 @@
+<%- include('partials/header') %>
+
+
+<section class="gradient-form login-section">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img
+                    src="/Images/logo.jpg"
+                    style="width: 11.563rem"
+                    alt="logo"
+                  />
+                  <h4 class="mt-1 mb-5 pb-1">Please Verify your Email</h4>
+                </div>
+
+                <form action="/registerOTP" method="post">
+                  
+
+                  <div class="form-outline mb-4">
+                    <input required
+                      style="margin-left: 0%"
+                      type="text"
+                      id="form2Example11"
+                      class="form-control"
+                      placeholder="Your OTP"
+                      name="inputOTP"
+                    />
+                    <input hidden name="sentOTP" value="<%= otp %>" >
+                    <input hidden name="firstName" value="<%= usernew.firstName %>">
+                    <input hidden name="lastName" value="<%= usernew.lastName %>">
+                    <input hidden name="email" value="<%= usernew.email %>">
+                    <input hidden name="password" value="<%= usernew.password %>">
+                    <input hidden name="mobileNumber" value="<%= usernew.mobileNumber %>">
+                    <input hidden name="address" value="<%= usernew.address %>">
+                    <input hidden name="exam" value="<%= usernew.exam %>">
+
+                  </div>
+
+                
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button
+                    class="btn btn-outline-secondary btn-block fa-lg mt-3"
+                    type="submit"
+                    id="gradient"
+                    onmouseover="hoverFunction()"
+                    onmouseout="outFunction()"
+                    >
+                    Verify
+                    </button>
+                  </div>
+
+                  <div
+                    class="d-flex align-items-center justify-content-center pb-4"
+                  >
+                    <p class="mb-0 me-3 mt-3">Want to change email?</p>
+                    <a href="/register">
+                      <button
+                      class="btn btn-outline-secondary btn-block fa-lg mt-3"
+                      type="submit"
+                      id="gradient1"
+                      onmouseover="hoverFunction1()"
+                      onmouseout="outFunction1()"
+                      >
+                      Change
+                      </button>
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are more than just a company</h4>
+                <p class="small mb-0">
+                  Why waste your precious time and energy over searching various web pages to get 
+                  information about your desired exam.Join with us and get all your exam details at
+                  one click.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function hoverFunction(){
+  document.getElementById("gradient").classList.add("gradient-custom-2");
+  }
+  function outFunction(){
+  document.getElementById("gradient").classList.remove("gradient-custom-2");
+  }
+  function hoverFunction1(){
+  document.getElementById("gradient1").classList.add("gradient-custom-2");
+  }
+  function outFunction1(){
+  document.getElementById("gradient1").classList.remove("gradient-custom-2");
+  }
+  </script>
+
+<%- include('partials/footer') %>

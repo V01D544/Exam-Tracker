@@ -1,0 +1,143 @@
+<%- include('partials/authHeader') %>
+
+<% if(message.length>0){ %>
+
+  <div class="alert alert-success alert-dismissible fade show mb-0 pt-4 "  style="text-align: center;">
+    <h5><%= message %></h5>
+    <button style="display: none;" type="button" class="btn close" data-bs-dismiss="alert" id="alertButton">
+    </button>
+  </div>
+
+<% } %> 
+
+<script>
+  window.onload =setTimeout( function(){document.getElementById('alertButton').click();},1800);
+</script> 
+
+<section style="background-color: #eee">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              User Profile
+            </li>
+          </ol>
+        </nav>
+      </div> 
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <% if(UserData.image){ %>
+            <img
+              src="/Uploads/<%=UserData.image%>"
+              alt="avatar"
+              class="rounded-circle img-fluid"
+              style="width: 9.375rem"
+            />
+
+            <% }else{ %>
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+              alt="avatar"
+              class="rounded-circle img-fluid centered-and-cropped"
+              style="width: 9.375rem"
+            />
+            <% } %>
+
+            <h5 class="my-3">
+              <%= UserData.firstName%> <%= UserData.lastName%>
+            </h5>
+
+           
+          
+            <p class="text-muted mb-4">Today a believer tomorrow an achiever</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">First Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.firstName %></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Last Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.lastName %></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.email %></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Mobile Number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.mobileNumber %></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.address %></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Exams</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= UserData.exam %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center d-flex justify-content-center mb-2">
+          <a class="btn btn-primary" href="/updateProfile" type="submit"
+            >Update Profile</a
+          >
+
+          <form style="margin-left: 1.25rem" method="post" action="/deleteProfile" onsubmit="return confirm('ARE YOU SURE!! This can not be undone');">
+            <button
+              class="btn btn-outline-primary"
+              href="/deleteProfile"
+              type="submit"
+            >
+              Delete Profile
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

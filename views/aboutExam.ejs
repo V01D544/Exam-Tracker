@@ -1,0 +1,23 @@
+<% if(sess==true){ %>
+    <%- include('partials/authHeader') %>
+  <% }else{ %>
+    <%- include('partials/header') %>
+  <% } %> 
+
+
+
+<div class="pt-3 pb-3" style="text-align: center; background-color:rgb(64, 65, 68); color: white;">
+    <h1 class="">
+       About <%= requiredExam.examName %>
+    </h1>
+  </div>
+  <hr style="margin: 0%;" color="azure">
+   <div class="mt-4 mb-4 ms-4 me-4">
+    <% for(var i=0;i<aboutArray.length;i++){ %>
+        <%= aboutArray[i] %>
+        <br>
+ <% } %> 
+
+   </div>
+    
+ <%- include('partials/footer') %>

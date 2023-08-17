@@ -1,0 +1,92 @@
+<%- include('partials/authHeader') %>
+<style>
+  
+  a{
+    color: #cc2323;
+  }
+</style>
+<div class="pt-2 pb-4 mt-3" style="text-align: center; background-color:rgb(64, 65, 68); color: white;">
+  <h5>Exam Tracker</h5>
+  <h1>
+    <%= user.firstName %>! Updates for your selected exams.
+  </h1>
+</div>
+<hr style="margin: 0%;" color="azure">
+<div class="container mt-1 " >
+  <% for(let i=0;i<ExamData.length;i++){  %>
+    <% var ExamObject=ExamData[i] %>
+    <% var ExamName=Object.keys(ExamObject) %>
+    <% var DataOfExam=ExamData[i][ExamName] %>
+    <% var DataOfExamKeys=Object.keys(DataOfExam) %>
+    <div class="card mt-3 mb-3 rounded" style="background-color: #f7f5f5;">
+      <div class="card-title" style="background-color: #474e5d; color: white;">
+
+        <h1 style="text-align: center;"><%- ExamName %></h1>
+      </div>
+      <ol>
+
+        <% for(let j=0;j<DataOfExamKeys.length;j++){  %>
+          <div class="card-body" >
+            <% var currentKey=DataOfExamKeys[j] %>
+            <% var examParticularDetails=DataOfExam[currentKey]  %> 
+            <strong style="color: rgb(0, 155, 202);">
+                <li style="font-size: larger;">
+
+                    <%- currentKey %>
+                  </li>
+                </strong>
+                <% if(examParticularDetails.length>0){%>
+                  <ul>
+                    <%examParticularDetails.forEach(function(anchor){%>
+                     <li class="anchor" style="color:red;">
+
+                       <%- anchor %>
+                       
+                     </li>
+                    <%})%>
+                  </ul>
+                 <% }else{ %>
+                  <ul>
+
+                    <li>Sorry! Not available now.</li>
+                  </ul>
+                 <%}%>
+           </div>
+
+    <% }  %>     
+      </ol>
+   </div>
+<% }  %>
+
+</div> 
+
+<script>
+  var b=document.querySelectorAll("li.anchor > a > ul");
+  b.forEach(function (temp){
+       temp.style="list-style-type:none; padding:0;margin:0;";
+  })
+ </script>
+
+       <!-- <% for(let i=0;i<ExamData.length;i++){  %> 
+           <% var ExamObject=ExamData[i] %>
+           <% var ExamName=Object.keys(ExamObject) %>
+           <% var DataOfExam=ExamData[i][ExamName] %>
+           <% var DataOfExamKeys=Object.keys(DataOfExam) %>
+           <div class="card">
+               <h1 style="text-align: center;"><%- ExamName %></h1>
+               <% for(let j=0;j<DataOfExamKeys.length;j++){  %>
+                 <div class="card-body">
+                 <% var currentKey=DataOfExamKeys[j] %>
+                 <% var examParticularDetails=DataOfExam[currentKey]  %> 
+                    <h3><%- currentKey %></h3> 
+                    <%- examParticularDetails %> 
+                  </div>
+ 
+           <% }  %>     
+          </div>
+      <% }  %> -->
+      
+       
+
+
+<%- include('partials/footer') %>

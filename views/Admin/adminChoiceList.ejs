@@ -1,0 +1,122 @@
+<%- include('partials/header') %>
+
+
+   <% if(!UserChoice){  %>
+    <h1 style="text-align: center;" class="mt-3 mb-4">User's All Details</h1>
+           
+       <div class="card mb-5 ms-5 me-5">
+      <div class="card-header">
+          <i class="fas fa-table me-1"></i>
+          User's Details
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="table-responsive-md" >
+          <table id="datatablesSimple">
+              <thead>
+                  <tr>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Address</th>
+                      <th>Exam</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% allUsers.forEach(function(user){ %>
+                  <%if(user.email!=="admin@admin.com"){%>
+                  <tr>
+                      <td><%=user.firstName%></td>
+                      <td><%=user.lastName%></td>
+                      <td><%=user.address%></td>
+                      <td><%=user.email%></td>
+                      <td><%=user.mobileNumber%></td>
+                      <td>
+                        <%=user.exam %>
+                      </td>
+                  </tr>
+                  <%}})%>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+</div>
+
+   <%} %>
+
+
+
+   <% if(UserChoice){   %>
+    <div class="container">
+    <div class="table-responsive-md" >
+     <table  class=" table table-bordered table-striped table-hover" style="margin-top: 3rem;">
+      <tr style="text-align: center;">
+    <% for(var i=0;i<UserChoice.length;i++){  %>
+      <%   var choice=UserChoice[i];   %>
+      
+        
+      <th>  <h1><%=choice%></h1></th>
+    
+
+    <% } %>
+  </tr>
+        
+      <%  for(var i=0;i<allUsers.length;i++){   %> 
+        
+          <%  var user=allUsers[i];    %>
+          <%if(user.email!=="admin@admin.com"){%>
+          <tr style="text-align: center;">
+            
+            <% for(var j=0;j<UserChoice.length;j++){  %>
+             <% var choice=UserChoice[j];  %>
+                
+             <td style="margin-left: 0.4rem;"> <%= user[choice] %> </td>
+             
+             <%} %>
+          </tr>
+<%} %>
+<%} %> 
+  </table>
+</div>
+</div>
+  <% }%>
+
+
+  
+      
+
+    
+      
+
+      
+      
+
+  
+   
+
+ 
+ 
+    
+    
+  
+
+ 
+<script>
+    document.querySelectorAll(".collapsible").forEach(function(current) {
+
+let toggler = document.createElement("div");
+toggler.className = "toggler";
+current.appendChild(toggler);
+
+toggler.addEventListener("click", function(e) {
+  current.classList.toggle("open");
+}, false);
+
+});
+</script>
+
+
+
+<%- include('partials/footer') %>

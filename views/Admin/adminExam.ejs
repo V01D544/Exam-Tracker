@@ -1,0 +1,142 @@
+<%- include('partials/header') -%>
+
+
+ <% if(task==="Show"){ %>
+  <h1 class="mt-4 mb-4" style="text-align: center;"> Exams List </h1>
+    <div  class="row" style="width: 100%;">
+        <% for(var i=0;i<exams.length;i++){%>
+            <div class="category__link col-md-6">
+                <div  class="card mb-5 me-4 ms-5 ">
+                    <h4  style="text-align: center;" class="card-title mt-2"><%= exams[i].examName %></h4>
+                    <hr>
+                    <p style="font-size: large; text-align: start;  " class="ms-4">Exam URL-1: <%= exams[i].examURLs[0] %></p>
+                    <p style="font-size: large;text-align: start; " class="ms-4">Exam URL-2: <%= exams[i].examURLs[1] %></p>
+                    <p style="font-size: large;text-align: start; " class="ms-4">Exam URL-3: <%= exams[i].examURLs[2] %></p>
+                    <p style="font-size: large;text-align: start; " class="ms-4">Exam URL-4: <%= exams[i].examURLs[3] %></p>
+
+                </div>
+            </div>
+            
+        <% } %>
+    </div>
+<% } %>
+
+ 
+<% if(task==="Add"){ %>
+  
+              
+    <div style=" width:100%" class="container card mt-4">
+        <h1 class="card-title" style="text-align: center">Add Exam</h1>
+        <hr >
+        <div>
+          <!-- left column -->
+          <form class="form-horizontal" action="/addExam" method="POST"  >
+            <!-- edit form column -->
+              <div class="col-md-12">
+                <div>
+                  <h3 style="text-align: center">Exam Details</h3>
+                </div>
+                <div class="row" >
+                <div class="form-group col-md-8 mb-3" >
+                  <label class="col-lg-3 control-label">Exam Name:</label>
+                  <div class="col-lg-8">
+                    <input required
+                      class="form-control"
+                      type="text"
+                      name="ExamName"
+                    />
+                  </div>
+                </div>
+                <div class="form-group col-md-8 mb-3">
+                  <label class="col-lg-3 control-label">Exam Page URL-1:</label>
+                  <div class="col-lg-8">
+                    <input required
+                      class="form-control"
+                      type="text"
+                      name="ExamURL1"
+                     
+                    />
+                  </div>
+                </div>
+      
+                <div class="form-group col-md-8 mb-3">
+                  <label class="col-md-3 control-label">Exam Page URL-2</label>
+                  <div class="col-md-8">
+                    <input 
+                      class="form-control"
+                      type="text"
+                      name="ExamURL2"
+                      
+                    />
+                  </div>
+                </div>
+                <div class="form-group col-md-8 mb-3">
+                  <label class="col-md-3 control-label">Exam Page URL-3</label>
+                  <div class="col-md-8">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ExamURL3"
+                      
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group col-md-8 mb-3">
+                  <label class="col-md-3 control-label">Exam Page URL-4</label>
+                  <div class="col-md-8">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="ExamURL4"
+                      
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group col-md-8 mb-3">
+                  <label class="col-md-3 control-label">About Page URL</label>
+                  <div class="col-md-8">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="aboutUrl"
+                      
+                    />
+                  </div>
+                </div>
+
+              </div>
+              </div>
+             
+      
+            <div
+              style="margin-top: 4rem"
+              class="text-center d-flex justify-content-center mb-2"
+            >
+              <button
+                
+                class="btn btn-primary col-md-2 mb-2"
+                type="submit"
+              >
+                Add Exam
+              </button>
+              <a
+                style="margin-left: 1.25rem;" 
+                class="btn btn-outline-primary col-md-2 mb-2"
+                href="/adminView"
+                >Cancel</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+   
+
+<% } %>  
+
+
+
+ <%- include('partials/footer') -%>
+
+

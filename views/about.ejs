@@ -1,0 +1,57 @@
+<% if(sess==true){ %>
+  <%- include('partials/authHeader') %>
+<% }else{ %>
+  <%- include('partials/header') %>
+
+<% } %> 
+
+<div style="padding: 3.125rem; text-align: center; background-color: #474e5d; color: white;">
+    <h1>About Us Page</h1>
+    <p>Some text about who we are and what we do.</p>
+    <p>We are the builders of future Some text about who we are and what we do</p>
+  </div>
+  
+  <h2 style="text-align:center; margin: 1.25rem 0;">Our Team</h2>
+  <div class="row" style="margin-right: 0%;">
+    <div style="float: left;width: 33.3%;margin-bottom: 1rem;padding: 0 0.5rem;">
+      <div style="box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+      margin: 0.5rem;" class="card">
+        <img src="/Images/avatar.png" alt="Shekhar" style="width:100%">
+        <div class="container">
+          <h2 style="margin-top: 1.25rem;">Shekhar Singh</h2>
+          <p class="title">CEO</p>
+          <p>CEO and Founder of Exam Tracker</p>
+          <p>shekhar111@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  
+    <div style="float: left;width: 33.3%;margin-bottom: 1rem;padding: 0 0.5rem;">
+      <div style="box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+      margin: 0.5rem;" class="card">
+        <img src="/Images/avatar.png" alt="A" style="width:100%">
+        <div class="container">
+          <h2 style="margin-top: 1.25rem;">A</h2>
+          <p class="title">FRONTEND DEVELOPER</p>
+          <p>Works a frontend developer</p>
+          <p>iammra@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  
+    <div style="float: left;width: 33.3%;margin-bottom: 1rem;padding: 0 0.5rem;" >
+      <div style="box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+      margin: 0.5rem;" class="card">
+        <img src="/Images/avatar.png" alt="B" style="width:100%; ">
+        <div class="container">
+          <h2 style="margin-top: 1.25rem;">B</h2>
+          <p class="title">BACKEND DEVELOPER</p>
+          <p>Works as a backend developer</p>
+          <p>iammrb@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<%- include('partials/footer') %>  

@@ -1,0 +1,112 @@
+<%- include('partials/header') -%>
+
+  
+
+<div style="width:100%" class="container card mt-4 mb-4">
+    <h1 style="text-align: center">Edit Exam</h1>
+    <hr />
+    <div class="row">
+      <!-- left column -->
+      <form
+        class="form-horizontal"
+        action="/updateExam"
+        method="post"
+       
+      >
+        <!-- edit form column -->
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <h3 style="text-align: center">Exam info</h3>
+            </div>
+  
+            <div class="form-group col-md-8">
+              <label class="col-lg-3 control-label">Exam name:</label>
+              <div class="col-lg-8">
+                <input required
+                  class="form-control"
+                  type="text"
+                  name="examName"
+                  value="<%=ExamData.examName %>"
+                />
+              </div>
+            </div>
+            <div class="form-group col-md-8">
+              <label class="col-lg-3 control-label">URL-1</label>
+              <div class="col-lg-8">
+                <input required
+                  class="form-control"
+                  type="text"
+                  name="url1"
+                  value="<%=ExamData.examURLs[0] %>"
+                />
+              </div>
+            </div>
+  
+            <div class="form-group col-md-8" >
+              <label class="col-md-3 control-label">URL-2</label>
+              <div class="col-md-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="url2"
+                  value="<%= ExamData.examURLs[1] %>"
+                />
+              </div>
+            </div>
+            <div class="form-group col-md-8">
+              <label class="col-md-3 control-label">URL-3</label>
+              <div class="col-md-8">
+                <input 
+                  class="form-control"
+                  type="text"
+                  name="url3"
+                  value="<%= ExamData.examURLs[2] %>"
+                />
+              </div>
+            </div>
+            <div class="form-group col-md-8">
+              <label class="col-md-3 control-label">URL-4</label>
+              <div class="col-md-8">
+                <input 
+                  class="form-control"
+                  type="text"
+                  name="url4"
+                  value="<%= ExamData.examURLs[3] %>"
+                />
+              </div>
+            </div>
+
+             <div class="form-group">
+              <div class="col-md-8">
+                <input hidden class="form-control" type="text" name="ExamId" value="<%= ExamData._id %>" />
+              </div>
+            </div>
+           
+          </div>
+        </div>
+  
+        <div
+          style="margin-top: 2rem"
+          class="text-center d-flex justify-content-center mb-2"
+        >
+          <button
+            
+            class="btn btn-primary col-md-2 mb-2"
+            type="submit"
+          >
+            Update
+          </button>
+          <a
+            style="margin-left: 1.25rem;" 
+            class="btn btn-outline-primary col-md-2 mb-2"
+            href="/adminView"
+            >Cancel</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<%- include('partials/footer') -%>

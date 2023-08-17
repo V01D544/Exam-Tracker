@@ -1,0 +1,144 @@
+<%- include('partials/header') %>
+  
+<% if(message.length>0){ %>
+
+  <div class="alert alert-danger alert-dismissible fade show mb-0 pt-4 "  style="text-align: center;">
+    <h5><%= message %></h5>
+    <button style="display: none;" type="button" class="btn close" data-bs-dismiss="alert" id="alertButton">
+    </button>
+  </div>
+
+<% } %>   
+
+<script>
+  window.onload =setTimeout( function(){
+      document.getElementById('alertButton').click();
+    },1800)
+    </script>
+
+  <!-- Section: Design Block -->
+<section class="text-center text-lg-start" >
+  <div class="card mb-5 mt-5 ms-3 me-3">
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-lg-5 d-none d-lg-flex">
+        <img
+          src="/Images/register.jpg"
+          alt="img"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
+        />
+      </div>
+      <div class="col-lg-7 " >
+        <div class="card-title" style="text-align: center;"> <h2>Sign Up</h2> </div>
+        <div class="card-body py-5 px-md-5">
+
+          <form action="/register" method="post" id="regForm">
+            <div class="float-container">
+              <!-- First Name -->
+              <div class="float-child">
+                <input required
+                  style="margin-left: 0; width: 93.5%"
+                  type="text"
+                  id="form2Example1"
+                  class="form-control"
+                  name="firstname"
+                  placeholder="First Name"
+                />
+              </div>
+              <!-- Last Name -->
+              <div class="float-child">
+                <input required
+                  style="margin-left: 6%; width: 94%"
+                  type="text"
+                  id="form2Example1"
+                  class="form-control"
+                  name="lastname"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input required
+                style="margin-left: 0"
+                type="email"
+                id="form2Example1"
+                class="form-control"
+                name="emailid"
+                placeholder="Email Id"
+              />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input required
+                style="margin-left: 0"
+                type="password"
+                id="form2Example2"
+                class="form-control"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="form-outline mb-4">
+              <input required
+                style="margin-left: 0"
+                type="tel"
+                maxlength="10"
+                id="form2Example2"
+                class="form-control"
+                name="mobilenumber"
+                placeholder="Mobile Number"
+              />
+            </div> 
+
+            <div class="form-outline mb-4">
+              <input required
+                style="margin-left: 0"
+                type="text"
+                id="form2Example2"
+                class="form-control"
+                name="address"
+                placeholder="Address"
+              />
+            </div>
+
+            <div class="dropdown text-center ">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                 Select Exam </button>
+              <ul class="dropdown-menu" >
+
+               <%  for(var i=0;i<examlist.length;i++){  %>
+                  <div class="">
+                    <li><label><input style="margin-left:0.2rem;" type="checkbox" value='<%= examlist[i] %>' name="userExam"/> <%= examlist[i] %></label></li>
+                  </div>
+                 <% }  %>
+
+             </ul>
+        
+           
+            </div>
+
+</div>
+
+
+
+            <!-- Submit button -->
+            <div class="col-6 container">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block btn-lg submit-btn mb-2"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+<%- include('partials/footer') %>

@@ -1,0 +1,178 @@
+<%- include('partials/header') -%>
+
+<% if(message.length>0){ %>
+
+  <div class="alert alert-success alert-dismissible fade show mb-0 pt-4 "  style="text-align: center;">
+    <h5><%= message %></h5>
+    <button style="display: none;" type="button" class="btn close" data-bs-dismiss="alert" id="alertButton">
+    </button>
+  </div>
+
+<% } %>  
+
+<script> 
+  window.onload =setTimeout( function(){document.getElementById('alertButton').click();},1800);
+</script> 
+
+  <div class="row" style="width: 100%;">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10">
+        <h1 style="margin-top: 1rem;text-align: center;" class="fw-bolder mb-1">
+            Admin View
+        </h1>
+    </div>
+  </div>
+<hr class="mb-5">
+  <div style="margin: 0; width: 100%; " class="row mb-4">
+     
+     <div class="col-md-6 mb-3" >
+          <a type="button" href="" class="category__link ms-5 me-5" onclick="manageExam();return false;">
+               <div  class="card mb-4 ">
+                    <img  class="card-img-top"  src="/Images/Exam1.jpg" alt="Exam" >
+                    <div class="card-body">
+                      <h2 class="card-title">
+                           Exams
+                      </h2>
+                   
+                      <div class="adminExams" id="adminExam">
+                          <button class="btn btn-outline-secondary" style="margin:0 0.938rem 0.5rem 0.625rem;" onclick="window.location.href='/adminExam/Add' ">Add Exam</button>
+                          <button  class="btn btn-outline-secondary" style="margin:0 0.938rem 0.5rem 0.625rem;" onclick="manageEdit()">Edit Exam</button>
+                          <button class="btn btn-outline-secondary" style="margin:0 0.938rem 0.5rem 0.625rem;"  onclick="window.location.href='/adminExam/Show' ">Show Exams</button>
+                          <button  class="btn btn-outline-secondary" style="margin:0 0.938rem 0.5rem 0.625rem;" onclick="manageRemove()">Remove Exams</button>
+                      </div>  
+
+                      <div class="removeDropdown " id="Dropdown" >
+                           <form action="/removeExams" method="POST" id="ExamForm">                       
+                            <div class="dropdown text-center " >
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select Exam(s) </button>
+                                   
+                                <ul class="dropdown-menu" OnMouseEnter="checkboxMouseEnter()" OnMouseLeave="checkboxMouseLeave()" >                    
+                                  <%  for(var i=0;i<exams.length;i++){  %> 
+                                  <div class="" >
+                                     <li style="margin-left: 0.3rem;"><label><input onclick="checkbox(event)" type="checkbox"  value='<%= exams[i].examName %>' name="userExam"/> <%= exams[i].examName %></label></li>
+                                    </div>
+                                    <% } %>
+                                    <button  class="btn btn-sm btn-outline-dark" onclick="submitRemove();return confirm('ARE YOU SURE!! This can not be undone');">Remove</button> 
+                                </ul>                  
+                             </div>                    
+                          </form>
+                  </div>
+ 
+                  <div class="editDropdown" id="DropdownEdit" >
+                          <form action="/EditExam" method="POST" id="EditExamForm" >
+                           <div class="input-group mb-3 mt-3 container ms-3"  >
+                            <div class="row ms-5" >
+                               <div class="col-lg-12 ms-5" >
+                              <select class="custom-select text-center"  name="selectedExam" >
+                                <option selected >Choose...</option>
+                               
+                                <%  for(var i=0;i<exams.length;i++){  %> 
+                                <option value='<%= exams[i].examName %>' ><%= exams[i].examName %></option>
+                                <% } %>
+                                </select>
+                                
+                                
+                                <button  class="btn btn-outline-secondary" onclick="submitEdit()" >Edit</button>
+                            </div>
+                          </div>
+                           </div> 
+                          </form>
+                  </div>  
+                  
+                  
+
+                
+
+                 </div>
+              </div> 
+          </a>
+        
+        </div>
+
+        <div class="col-md-6 mb-3" id="zIndexManage" >
+          <a href="" class="category__link ms-5 me-5"  onclick="manageUser();return false;">
+             <div " class="card mb-4">
+                 <img  class="card-img-top"  src="Images/User1.jpg" alt="User" >
+                 <div class="card-body">
+                   <h2 class="card-title">Users</h2>
+                   <div class="AdminUser" id="adminUser">
+                      <div class="text-center d-flex justify-content-center mb-2" >
+                         <button  
+                             class="btn  btn-outline-secondary me-3" onclick="window.location.href='/adminUsers/All' ">
+                                All Details</button>
+
+                            <form action="/adminSomeUsers" method="POST" id="UserChoiceForm">
+                              <div class="dropdown text-center " style="display: inline-block;">
+                                    <button  
+                                       class="btn btn-outline-secondary dropdown-toggle ms-3" 
+                                       type="button" data-toggle="dropdown">
+                                           View Only</button>    
+                                    <ul class="dropdown-menu" >
+                                       <div>
+                                          <li><label style="margin-left:0.3rem ;"><input onclick="checkbox(event)" type="checkbox"  value='firstName' name="userChoice"/> First Name</label></li>
+                                          <li><label style="margin-left:0.3rem ;"><input onclick="checkbox(event)" type="checkbox"  value='lastName' name="userChoice"/> Last Name</label></li>
+                                          <li><label style="margin-left:0.3rem ;"><input onclick="checkbox(event)" type="checkbox"  value='email' name="userChoice"/> Email</label></li>
+                                          <li><label style="margin-left:0.3rem ;"><input onclick="checkbox(event)" type="checkbox"  value='mobileNumber' name="userChoice"/> Number</label></li>
+                                       </div>
+                                       <button class="btn btn-sm btn-outline-dark ms-5 mt-2" onclick="usersChoice()"> View</button>
+                                    </ul>
+                              </div>
+                            </form>
+                      </div>
+                   </div> 
+                </div>
+             </div>
+           </a>
+          </div>   
+    
+  </div>
+
+
+
+<script>
+         function manageExam(){
+             document.getElementById("adminExam").style.display="inline";     
+           } 
+
+         function manageUser(){
+               document.getElementById("adminUser").style.display="inline";
+           }
+
+         function manageRemove(){
+               document.getElementById("Dropdown").style.display="inline";
+           } 
+
+         function checkbox(e){
+               e.stopPropagation();
+           }
+
+         function submitRemove(){
+               document.getElementById("ExamForm").submit();
+           }
+
+         function manageEdit(){
+               document.getElementById("DropdownEdit").style.display="inline";
+           }
+
+         function submitEdit(){
+               document.getElementById("EditExamForm").submit();
+           }
+
+         function usersChoice(){
+               document.getElementById("UserChoiceForm").submit();
+           }
+         function checkboxMouseEnter(){
+               document.getElementById("zIndexManage").style.zIndex="-1";
+           } 
+         function checkboxMouseLeave(){
+               document.getElementById("zIndexManage").style.zIndex="0";
+           } 
+
+</script>
+
+
+
+
+
+<%- include('partials/footer') -%>

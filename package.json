@@ -1,0 +1,31 @@
+{
+  "name": "exam-tracker",
+  "version": "1.0.0",
+  "description": "Web Development project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Shekhar Singh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.6.4",
+    "jsdom": "^21.1.0",
+    "mongoose": "^7.3.1",
+    "mongoose-type-url": "^2.1.0",
+    "multer": "^1.4.5-lts.1",
+    "node": "^14.20.1",
+    "nodemailer": "^6.9.1",
+    "python-shell": "^5.0.0"
+  }
+}
