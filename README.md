@@ -1,5 +1,5 @@
 # Exam-Tracker
-<img width="1680" alt="Screenshot 2023-08-18 at 12 16 10 AM" src="https://github.com/V01D544/Exam-Tracker/assets/93920333/429272ea-9527-4d01-93b0-c8c5f34dd0d0">
+![Sorting Visualizer](examtrkerImg.png)
 
 Exam Tracker gives details like Admit Card,Result,Syllabus,Registration etc about various exams.
 Python has been used for web Scrapping along with NodeJS as backend.
